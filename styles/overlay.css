@@ -1,0 +1,35 @@
+.modal {
+    /* so overlay is ontop of the content and stays on screen when you scroll away*/
+    position: fixed;
+    /* should tell html where item should be positioned */
+    top: 20%;
+    left: 5%;
+    width: 90%;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    /* set to none so it will only appear with javascript.style */
+    display: none;
+}
+
+/* makes backdrop for overlay so cant choose anything on page whilst overlay shown */
+#backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* so backdrop takes whole of screen */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* set to none so it will only appear with javascript.style */
+    display: none;
+}
+
+@media (min-width: 48rem) {
+    /* function to calculate so the modal is in the middle of screen when smaller */
+    .modal {
+        left: calc(50% - 20rem);
+        width: 40rem;
+    }
+}

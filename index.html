@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/overlay.css" />
+    <link rel="stylesheet" href="styles/configuration.css" />
+    <link rel="stylesheet" href="styles/game.css" />
+    <!-- load config first as it has the functions created -->
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/game.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <!-- backdrop id div made so background is not visible when modal is shown -->
+    <div id="backdrop"></div>
+    <header id="main-header">
+      <h1>Play Tic, Tac, Toe</h1>
+      <p>Built with HTML, CSS, and JavaScript</p>
+    </header>
+
+    <!-- part of configuration -->
+    <main>
+      <!-- aside used as modal overlay, can also use div -->
+      <aside class="modal" id="config-overlay">
+        <h2>Choose your name</h2>
+
+        <form>
+          <div class="form-control">
+            <label for="playername">Player name</label>
+            <input type="text" name="playername" id="playername" required />
+          </div>
+          <!-- used for error message in javascript -->
+          <p id="config-errors"></p>
+          <div>
+            <!-- closes or submits overlay -->
+            <button type="reset" class="btn btn-alt" id="cancel-config-btn">
+              Cancel
+            </button>
+            <button type="submit" class="btn">confirm</button>
+          </div>
+        </form>
+      </aside>
+
+      <section id="game-configuration">
+        <ol>
+          <li>
+            <!-- article is used to describe something -->
+            <!-- article id used to select player and update player name in javascript -->
+            <article id="player-1-data">
+              <h2>Player 1</h2>
+              <h3>PLAYER NAME</h3>
+              <p class="player-symbol">X</p>
+              <!-- add id to button for javascript manipulation -->
+              <!-- data- attribute used to distinguish between player 1 and 2 overlay and used in javascript -->
+              <button
+                class="btn btn-alt"
+                id="edit-player-1-btn"
+                data-playerid="1"
+              >
+                Edit
+              </button>
+            </article>
+          </li>
+          <li>
+            <article id="player-2-data">
+              <h2>Player 2</h2>
+              <h3>PLAYER NAME</h3>
+              <p class="player-symbol">O</p>
+              <!-- add id to button for javascript manipulation -->
+              <!-- data- attribute used to distinguish between player 1 and 2 overlay and used in javascript -->
+              <button
+                class="btn btn-alt"
+                id="edit-player-2-btn"
+                data-playerid="2"
+              >
+                Edit
+              </button>
+            </article>
+          </li>
+        </ol>
+        <!-- button to start game based on data -->
+        <button class="btn" id="start-game-btn">Start New Game</button>
+      </section>
+
+      <section id="active-game">
+        <article id="game-over">
+          <h2>You won, <span id="winner-name">PLAYER NAME</span>!</h2>
+          <p>Click "Start New Game" above, to start a new game!</p>
+        </article>
+        <!-- span with id used for javascript to change dynamically -->
+        <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p>
+        <!-- used for the game field/board -->
+        <ol id="game-board">
+          <!-- use these attributes for game data -->
+          <li data-col="1" data-row="1"></li>
+          <li data-col="2" data-row="1"></li>
+          <li data-col="3" data-row="1"></li>
+
+          <li data-col="1" data-row="2"></li>
+          <li data-col="2" data-row="2"></li>
+          <li data-col="3" data-row="2"></li>
+
+          <li data-col="1" data-row="3"></li>
+          <li data-col="2" data-row="3"></li>
+          <li data-col="3" data-row="3"></li>
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>
